@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Mode Only — Cinematic Obsidian */
+    --background: #080808;
+    --surface: #111111;
+    --surface-2: #1a1a1a;
+    --surface-3: #222222;
+    --foreground: #f0ece6;
+    --muted: #6a6560;
+    --muted-light: #9a9590;
+
+    /* Brand — Amber/Orange — Live Event Energy */
+    --brand-primary: #E8863A;   /* amber-orange */
+    --brand-secondary: #C4622A; /* deeper burnt orange */
+    --brand-accent: #F5A855;    /* warm highlight */
+
+    /* Utility */
+    --border: rgba(240,236,230,0.08);
+    --border-light: rgba(240,236,230,0.15);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--brand-primary);
+    color: #080808;
+  }
+}
+
+@layer utilities {
+  /* Typography helpers */
+  .text-balance { text-wrap: balance; }
+
+  .text-gradient-orange {
+    background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-primary) 50%, var(--brand-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-muted { color: var(--muted); }
+  .text-muted-light { color: var(--muted-light); }
+
+  /* Border helpers */
+  .border-subtle { border-color: var(--border); }
+  .border-light { border-color: var(--border-light); }
+
+  /* Display font shorthand */
+  .font-display { font-family: var(--font-display), Georgia, serif; }
+  .font-label { font-family: var(--font-label), system-ui, sans-serif; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-accent); }
+
+/* Horizontal scroll snap container */
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-start { scroll-snap-align: start; }
