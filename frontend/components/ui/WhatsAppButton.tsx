@@ -18,7 +18,10 @@ export default function WhatsAppButton() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 2 }}
-        className="fixed bottom-6 right-6 z-50"
+        // Offsets upward when the ConceptBanner reminder card is visible
+        // (its height is published as `--concept-stack`).
+        style={{ bottom: 'calc(1.5rem + var(--concept-stack, 0px))' }}
+        className="fixed right-6 z-50 transition-[bottom] duration-500 ease-out"
       >
         <Link
           href={whatsappUrl}

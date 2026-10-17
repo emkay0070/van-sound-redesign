@@ -3,6 +3,7 @@ import { Bebas_Neue, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import ConceptBanner from "@/components/ui/ConceptBanner";
 
 // Display font — Bebas Neue: bold, cinematic, editorial 
 const display = Bebas_Neue({
@@ -52,6 +53,8 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SmoothScroll>{children}</SmoothScroll>
+          {/* Concept review notice — intro modal + bottom-right reminder */}
+          <ConceptBanner />
         </ThemeProvider>
       </body>
     </html>
